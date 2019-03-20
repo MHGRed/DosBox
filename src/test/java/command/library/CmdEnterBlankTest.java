@@ -7,7 +7,7 @@ import console.Console;
 import helpers.TestHelper;
 
 /**
- * Exit is a command, but its functionality is handled by {@link Console}
+ * Enter is a command
  */
 public class CmdEnterBlankTest extends CmdTest {
 
