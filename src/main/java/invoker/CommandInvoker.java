@@ -152,7 +152,11 @@ public class CommandInvoker implements IExecuteCommand {
 				}
 			}
 		}
-		
+		// Allow to add empty file content, if file content is not given with
+		// mkdir
+		if (command.contains("mkfile") && params.size() == 1) {
+			params.add("");
+		}
 		return params;
 	}
 }
