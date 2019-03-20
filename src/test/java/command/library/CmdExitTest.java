@@ -7,7 +7,7 @@ import console.Console;
 import helpers.TestHelper;
 
 /**
- * Exit is not really a command, but it is recognized by {@link Console}
+ * Exit is a command, but its functionality is handled by {@link Console}
  */
 public class CmdExitTest extends CmdTest {
 
