@@ -30,6 +30,7 @@ public class CommandFactory {
 		this.commands.add(new CmdMkFile("mkfile", drive));
 		this.commands.add(new CmdExit("exit", drive));
 		this.commands.add(new CmdEnter("", drive));
+		this.commands.add(new CmdDel("del", drive));
 
 		// Add your commands here
 		

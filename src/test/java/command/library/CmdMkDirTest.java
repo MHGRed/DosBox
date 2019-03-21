@@ -38,6 +38,20 @@ public class CmdMkDirTest extends CmdTest {
         assertEquals(numbersOfDirectoriesBeforeTest + 1, drive.getRootDirectory().getNumberOfContainedDirectories());
         TestHelper.assertOutputIsEmpty(testOutput);
     }
+    
+    @Test
+    public void CmdMkDir_CreatesDuplicateDirFailTest()
+    {
+        // given
+        final String newDirName = "testDirDup";
+
+        // when
+        executeCommand("mkdir " + newDirName);
+        executeCommand("mkdir " + newDirName);
+
+        // then
+        TestHelper.assertContains("Duplicate File/Dir exist", testOutput);
+    }
 
     @Test
     public void CmdMkDir_CreateNewDirectory_NewDirectoryIsAddedToCorrectLocation()

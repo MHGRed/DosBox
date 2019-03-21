@@ -48,7 +48,11 @@ class CmdMkDir extends Command {
     public void execute(IOutputter outputter) {
         for(int i=0 ; i<getParameterCount() ; i++)
         {
-            CreateDirectory(getParameterAt(i), this.getDrive());
+        	if(this.getDrive().getItemFromPath(this.getDrive().getCurrentDirectory().getPath() + "\\" + getParameterAt(i))==null){
+        		CreateDirectory(getParameterAt(i), this.getDrive());
+        		}else{
+        			outputter.printLine("Duplicate File/Dir exist");
+        		}
         }
     }
 

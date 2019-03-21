@@ -21,7 +21,11 @@ class CmdMkFile extends Command {
 		String fileName = this.getParameterAt(0);
 		String fileContent = this.getParameterAt(1);
 		File newFile = new File(fileName, fileContent);
+		if(this.getDrive().getItemFromPath(this.getDrive().getCurrentDirectory().getPath() + "\\" + fileName)==null){
 		this.getDrive().getCurrentDirectory().add(newFile);
+		}else{
+			outputter.printLine("Duplicate File/Dir exist");
+		}
 	}
 
 	@Override
