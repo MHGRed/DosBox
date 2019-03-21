@@ -38,6 +38,20 @@ public class CmdMkFileTest extends CmdTest {
         File createdFile = TestHelper.getFile(drive, drive.getCurrentDirectory().getPath(), newFileName);
         assertNotNull(createdFile);
     }
+    
+    @Test
+    public void CmdMkFile_CreatesDuplicateFileFailTest()
+    {
+        // given
+        final String newFileName = "testFileDup";
+
+        // when
+        executeCommand("mkfile " + newFileName);
+        executeCommand("mkfile " + newFileName);
+
+        // then
+        TestHelper.assertContains("Duplicate File/Dir exist", testOutput);
+    }
 
     @Test
     public void CmdMkFile_WithoutContent_CreatesEmptyFile()
